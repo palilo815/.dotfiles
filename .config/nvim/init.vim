@@ -6,10 +6,17 @@ set shiftwidth=4
 set smarttab
 set softtabstop=4
 set expandtab
+set cursorline
+set nobackup
 set foldmethod=manual
 
 syntax enable
 filetype plugin indent on
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
 
 call plug#begin()
 
