@@ -1,6 +1,19 @@
 snippet dbg
     writeln!(out, "{:?}", ${0}).ok();
 
+snippet MOVE
+    const MOVE: [(usize, usize); 4] = [(usize::MAX, 0), (0, usize::MAX), (0, 1), (1, 0)];
+
+snippet next_permutation
+    fn next_permutation<T: Ord>(a: &mut [T]) -> bool {
+        a.windows(2).rposition(|a| a[0] < a[1]).map_or(false, |x| {
+            let y = a.iter().rposition(|b| a[x] < *b).unwrap();
+            a.swap(x, y);
+            a[(x + 1)..].reverse();
+            true
+        })
+    }
+
 snippet chminmax
     pub trait ChangeMinMax {
         fn chmin(&mut self, x: Self) -> bool;
@@ -21,6 +34,31 @@ snippet chminmax
             }
         }
     }
+
+snippet parametric
+    let parametric = |mut lo, mut hi| {
+        let f = |m| -> bool {};
+        // first true
+        while lo != hi {
+            let m = lo + (hi - lo) / 2;
+            if f(m) {
+                hi = m;
+            } else {
+                lo = m + 1;
+            }
+        }
+        // last true
+        while lo != hi {
+            let m = hi - (hi - lo) / 2;
+            if f(m) {
+                lo = m;
+            } else {
+                hi = m - 1;
+            }
+        }
+        lo
+    };
+
 
 snippet fio
     macro_rules! input {
