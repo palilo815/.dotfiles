@@ -8,6 +8,16 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin:$PATH
+export PATH=$HOME/.local/share/nvim/lsp_servers/rust:$PATH
+export PATH=$HOME/.local/share/nvim/lsp_servers/pylsp/venv/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
+export PATH=/.local/share/gem/ruby/3.0.0/bin:$PATH
+export PATH=/root/.local/share/gem/ruby/3.0.0/bin:$PATH
+export PATH=/usr/bin/clangd:$PATH
+
+# fucking yarn for coc.nvim. move to lsp-server as soon as possible.
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/palilo/.oh-my-zsh"
@@ -102,3 +112,7 @@ alias ls=exa
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# makepkg -sri
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

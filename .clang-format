@@ -18,4 +18,3 @@ AllowShortCaseLabelsOnASingleLine: true
 AlignAfterOpenBracket: false
 BinPackParameters: true
 AllowAllParametersOfDeclarationOnNextLine: true
-    
