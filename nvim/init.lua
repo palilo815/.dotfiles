@@ -7,7 +7,6 @@ require "user.snippet"
 require "user.lsp"
 require "user.treesitter"
 require "user.autopairs"
--- require "user.language.cpp"
 
 require("clangd_extensions").setup()
 require('rust-tools').setup({})
