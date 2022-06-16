@@ -24,6 +24,8 @@ source $ZSH/oh-my-zsh.sh
 export ARCHFLAGS="-arch x86_64"
 export EDITOR="nvim"
 
+eval "$(zoxide init zsh)"
+
 alias vim="nvim"
 
 alias ls="exa -al --color=always --group-directories-first"
