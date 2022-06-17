@@ -1,13 +1,12 @@
 require "user.options"
 require "user.keymaps"
+require "user.autocommands"
 require "user.plugins"
+require "user.setups"
 require "user.colorscheme"
 require "user.cmp"
 require "user.snippet"
 require "user.lsp"
 require "user.treesitter"
-require "user.autopairs"
 
-require("clangd_extensions").setup()
-require('rust-tools').setup({})
 

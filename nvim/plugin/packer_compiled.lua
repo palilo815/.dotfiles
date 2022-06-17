@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/palilo/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
     url = "https://github.com/lunarvim/darkplus.nvim"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/palilo/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
   ["nlsp-settings.nvim"] = {
     loaded = true,
     path = "/home/palilo/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",

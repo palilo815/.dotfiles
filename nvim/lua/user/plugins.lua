@@ -70,6 +70,7 @@ return packer.startup(function(use)
   -- etc
   use "nvim-treesitter/nvim-treesitter"
   use "windwp/nvim-autopairs"
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
