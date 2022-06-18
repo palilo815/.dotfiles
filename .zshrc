@@ -24,6 +24,12 @@ source $ZSH/oh-my-zsh.sh
 export ARCHFLAGS="-arch x86_64"
 export EDITOR="nvim"
 
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+# PATH for ruby
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+
 eval "$(zoxide init zsh)"
 
 alias vim="nvim"
@@ -32,13 +38,12 @@ alias ls="exa -al --color=always --group-directories-first"
 alias la="exa -a --color=always --group-directories-first"
 alias ll="exa -l --color=always --group-directories-first"
 alias lt="exa -aT --color=always --group-directories-first"
-alias l.="exa -a | rg "^\.""
+alias l.="exa -a | rg '^\.'"
 
 alias fetch="macchina"
 
 alias shut="sudo shutdown now"
 alias restart="sudo reboot now"
-
 
 ####################
 # from zsh-newuser #
