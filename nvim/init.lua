@@ -8,5 +8,4 @@ require "user.cmp"
 require "user.snippet"
 require "user.lsp"
 require "user.treesitter"
-
-
+require "user.toggleterm"
