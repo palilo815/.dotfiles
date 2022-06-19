@@ -187,18 +187,14 @@ end
 --
 -- opts can also specify a key. By passing an unique key to each add_snippets, it's possible to reload snippets by
 -- re-`:luafile`ing the file in which they are defined (eg. this one).
-ls.add_snippets("c", {
+ls.add_snippets("cpp", {
     s("palilo", {
         t({
             "#include <bits/stdc++.h>",
             "",
-            "int main() {",
+            "auto main() -> int {",
             "    using namespace std;",
             "    cin.tie(nullptr)->sync_with_stdio(false);",
-            "#ifdef palilo",
-            "    freopen(\"in\", \"r\", stdin);",
-            "    freopen(\"out\", \"w\", stdout);",
-            "#endif",
             "\t",
         }),
         i(1),
@@ -207,34 +203,34 @@ ls.add_snippets("c", {
     s("parametric", {
         t({
             "auto parametric = [&]<typename T>(T lo, T hi) {",
-            "\tauto f = [&](T mid) -> bool {",
-            "\t\t",
+            "    auto f = [&](T mid) -> bool {",
+            "        ",
         }),
         i(2, "// TODO"),
         t({
             "",
-            "\t};",
+            "    };",
             "",
         }),
         c(1, {
             t({
-                "\t// first true",
-                "\twhile (lo != hi) {",
-                "\t\tauto mid = lo + (hi - lo) / 2;",
-                "\t\tf(mid) ? hi = mid : lo = mid + 1;",
-                "\t}",
+                "    // first true",
+                "    while (lo != hi) {",
+                "        auto mid = lo + (hi - lo) / 2;",
+                "        f(mid) ? hi = mid : lo = mid + 1;",
+                "    }",
             }),
             t({
-                "\t// last true",
-                "\twhile (lo != hi) {",
-                "\t\tauto mid = hi - (hi - lo) / 2;",
-                "\t\tf(mid) ? lo = mid : hi = mid - 1;",
-                "\t}",
+                "    // last true",
+                "    while (lo != hi) {",
+                "        auto mid = hi - (hi - lo) / 2;",
+                "        f(mid) ? lo = mid : hi = mid - 1;",
+                "    }",
             }),
         }),
         t({
             "",
-            "\treturn lo;",
+            "    return lo;",
             "};"
         }),
     }),
@@ -313,7 +309,7 @@ ls.add_snippets("c", {
         }),
     }),
 }, {
-    key = "c",
+    key = "cpp",
 })
 
 ls.add_snippets("rust", {
@@ -601,7 +597,7 @@ ls.add_snippets("rust", {
 -- in a lua file: search lua-, then c-, then all-snippets.
 ls.filetype_extend("lua", { "c" })
 -- in a cpp file: search c-snippets, then all-snippets only (no cpp-snippets!!).
-ls.filetype_set("cpp", { "c" })
+-- ls.filetype_set("cpp", { "c" })
 
 -- Beside defining your own snippets you can also load snippets from "vscode-like" packages
 -- that expose snippets in json files, for example <https://github.com/rafamadriz/friendly-snippets>.
