@@ -1,6 +1,6 @@
-require("clangd_extensions").setup()
+-- require("clangd_extensions").setup()
 
-require('rust-tools').setup({})
+-- require('rust-tools').setup({})
 
 require("nvim-autopairs").setup {}
 
