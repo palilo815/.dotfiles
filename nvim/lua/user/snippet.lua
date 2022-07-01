@@ -259,6 +259,25 @@ ls.add_snippets("cpp", {
             "}; // namespace std",
         }),
     }),
+    s("dfs_ordering", {
+        t({
+            "auto topo = [&](int root) {",
+            "    vector<int> stk = {root}, topo(n);",
+            "    for (auto& u : topo) {",
+            "        u = stk.back();",
+            "        stk.pop_back();",
+            "        for (const auto& v : adj[u]) {",
+            "            const auto it = find(adj[v].begin(), adj[v].end(), u);",
+            "            swap(*it, adj[v].back());",
+            "            adj[v].pop_back();",
+            "            stk.emplace_back(v);",
+            "        }",
+            "    }",
+            "    // reverse(topo.begin(), topo.end());",
+            "    return topo;",
+            "}(0);",
+        })
+    }),
     s("chminmax", {
         t({
             "template <class T>",
@@ -267,9 +286,17 @@ ls.add_snippets("cpp", {
             "bool chmax(T& _old, T _new) { return _old < _new && (_old = _new, true); }",
         })
     }),
-    
+    s("next_bitset", {
+        t({
+            "auto next_bitset = [](const auto x) {",
+            "    const auto c {x & -x};",
+            "    const auto r {x + c};",
+            "    return (((x ^ r) >> 2) / c) | r;",
+            "};",
+        })
+    }),
     s("MOVE", {
-        t("constexpr array<pair<int, int>, 4> MOVE {{{-1, 0}, {0, -1}, {0, 1}, {1, 0}}};")
+        t("constexpr std::array<std::pair<int, int>, 4> MOVE {{{-1, 0}, {0, -1}, {0, 1}, {1, 0}}};")
     }),
     s("DEBUG", {
         t({
