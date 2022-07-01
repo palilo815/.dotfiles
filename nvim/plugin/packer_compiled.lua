@@ -168,6 +168,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/palilo/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["vim-clang-format"] = {
+    loaded = true,
+    path = "/home/palilo/.local/share/nvim/site/pack/packer/start/vim-clang-format",
+    url = "https://github.com/rhysd/vim-clang-format"
   }
 }
 
