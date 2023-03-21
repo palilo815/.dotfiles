@@ -1,6 +1,8 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 
+focus_follows_mouse no
+
 # Home row direction keys, like vim
 set $left j
 set $right k
