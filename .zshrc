@@ -32,6 +32,7 @@ export EDITOR="nvim"
 # export GEM_HOME="$HOME/gems"
 # export PATH="$HOME/gems/bin:$PATH"
 # export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"  # PATH for ruby
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin:$PATH"
 
 eval "$(zoxide init zsh)"
