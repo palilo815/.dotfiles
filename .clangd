@@ -1,0 +1,9 @@
+CompileFlags:
+  Add: [-std=c++20, -Dpalilo, -lm, -Wall, -O2]
+  Compiler: g++
+
+Diagnostics:
+  ClangTidy:
+    Add: modernize-*
+    Add: readability-*
+
