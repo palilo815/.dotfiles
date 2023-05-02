@@ -6,13 +6,13 @@ gaps inner 8
 gaps outer 4
 
 # Hide titlebar on windows:
-default_border pixel 1
+default_border pixel 6
 
 # Default Font
 font pango:Noto Sans Regular 10
 
 # Thin borders:
-smart_borders on
+# smart_borders off
 
 # Set wallpaper:
 exec swaybg -i ~/.config/sway/blackhole.png
