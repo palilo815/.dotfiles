@@ -10,6 +10,10 @@ input type:touchpad {
     natural_scroll enabled
 }
 
+input "type:keyboard" {
+    xkb_options ctrl:nocaps
+}
+
 # Read `man 5 sway-input` for more information about this section.
 #
 input type:keyboard xkb_layout "us"
