@@ -29,6 +29,8 @@ source $ZSH/oh-my-zsh.sh
 # user configuration #
 ######################
 
+setopt autocd beep nomatch
+
 export ARCHFLAGS="-arch x86_64"
 export EDITOR="nvim"
 
@@ -36,33 +38,25 @@ export EDITOR="nvim"
 # export GEM_HOME="$HOME/gems"
 # export PATH="$HOME/gems/bin:$PATH"
 # export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"  # PATH for ruby
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin:$PATH"
-
-eval "$(zoxide init zsh)"
+# export PATH="$HOME/.cargo/bin:$PATH"
+# export PATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin:$PATH"
 
 alias vim="nvim"
-alias ls="exa -al --color=always --group-directories-first"
-alias la="exa -a --color=always --group-directories-first"
-alias ll="exa -l --color=always --group-directories-first"
-alias lt="exa -aT --color=always --group-directories-first"
-alias ld="exa -lD --color=always"
-alias l.="exa -a | rg '^\.'"
+alias ls="eza -al --color=always --group-directories-first"
+alias la="eza -a --color=always --group-directories-first"
+alias ll="eza -l --color=always --group-directories-first"
+alias lt="eza -aT --color=always --group-directories-first"
+alias ld="eza -lD --color=always"
+alias l.="eza -a | rg '^\.'"
 alias shut="sudo shutdown now"
 alias restart="sudo reboot now"
 
 
+eval "$(zoxide init zsh)"
+
 ####################
 # from zsh-newuser #
 ####################
-
-# HISTFILE=~/.histfile
-# HISTSIZE=1000
-# SAVEHIST=1000
-
-setopt autocd beep nomatch
-
-# bindkey -v
 
 zstyle :compinstall filename "/home/palilo/.zshrc"
 
