@@ -7,4 +7,10 @@
 -- })
 
 -- apply all *.lua snippet files in "snippets" directory
-vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/snippets"
+vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/lua/custom/snippets"
+
+vim.opt.clipboard = "unnamed"
+
+if vim.g.neovide then
+	require("custom.configs.neovide")
+end
