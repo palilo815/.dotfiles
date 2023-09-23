@@ -9,6 +9,9 @@
 -- apply all *.lua snippet files in "snippets" directory
 vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/lua/custom/snippets"
 
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 vim.opt.clipboard = "unnamed"
 
 if vim.g.neovide then
