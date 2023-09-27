@@ -14,22 +14,21 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # oh my zsh #
 #############
 
-plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(aliases alias-tips archlinux copyfile extract git zoxide zsh-autosuggestions zsh-syntax-highlighting)
 
 fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
 
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_"
 
-bindkey '^ ' autosuggest-accept
-
 source $ZSH/oh-my-zsh.sh
-
 
 ######################
 # user configuration #
 ######################
 
 setopt autocd beep nomatch
+
+bindkey '^ ' autosuggest-accept
 
 export ARCHFLAGS="-arch x86_64"
 export EDITOR="nvim"
@@ -50,9 +49,6 @@ alias ld="eza -lD --color=always"
 alias l.="eza -a | rg '^\.'"
 alias shut="sudo shutdown now"
 alias restart="sudo reboot now"
-
-
-eval "$(zoxide init zsh)"
 
 ####################
 # from zsh-newuser #
