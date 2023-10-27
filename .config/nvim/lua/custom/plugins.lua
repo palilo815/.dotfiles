@@ -45,6 +45,14 @@ local plugins = {
 			},
 		},
 	},
+	{
+		"NvChad/nvterm",
+		opts = overrides.nvterm,
+		config = function(_, opts)
+			require("base46.term")
+			require("nvterm").setup(opts)
+		end,
+	},
 
 	-- Install a plugin
 	{
