@@ -30,6 +30,12 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = { ensure_installed = "all" },
   },
+
+  {
+    "NoahTheDuke/vim-just",
+    ft = { "just" },
+  },
+
   {
     "simrat39/rust-tools.nvim",
     -- just apply default setup
