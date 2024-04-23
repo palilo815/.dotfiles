@@ -1,5 +1,4 @@
 require "nvchad.options"
-require "configs.autocmds"
 
 -- add yours here!
 vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/snippets"
