@@ -1,4 +1,5 @@
 max_width = 120
 array_width = 90
 chain_width = 90
+struct_lit_width = 60
 edition = "2021"

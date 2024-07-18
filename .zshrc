@@ -47,6 +47,7 @@ alias lt="eza -aT --colour=always --group-directories-first --icons=always"
 alias ld="eza -lD --colour=always --icons=always"
 alias l.="eza -a | rg '^\.'"
 alias lg="lazygit"
+alias fetch="fastfetch -c ~/.config/fastfetch/cutty.jsonc"
 alias shut="sudo shutdown now"
 alias restart="sudo reboot now"
 
