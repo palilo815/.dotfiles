@@ -33,13 +33,6 @@ bindkey '^ ' autosuggest-accept
 export ARCHFLAGS="-arch x86_64"
 export EDITOR="nvim"
 
-# Install Ruby Gems to ~/gems
-# export GEM_HOME="$HOME/gems"
-# export PATH="$HOME/gems/bin:$PATH"
-# export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"  # PATH for ruby
-# export PATH="$HOME/.cargo/bin:$PATH"
-# export PATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin:$PATH"
-
 alias vim="nvim"
 alias ls="eza -al --colour=always --group-directories-first --icons=always"
 alias ll="eza -l --colour=always --group-directories-first --icons=always"
@@ -47,7 +40,7 @@ alias lt="eza -aT --colour=always --group-directories-first --icons=always"
 alias ld="eza -lD --colour=always --icons=always"
 alias l.="eza -a | rg '^\.'"
 alias lg="lazygit"
-alias fetch="fastfetch -c ~/.config/fastfetch/cutty.jsonc"
+alias fetch="fastfetch"
 alias shut="sudo shutdown now"
 alias restart="sudo reboot now"
 
