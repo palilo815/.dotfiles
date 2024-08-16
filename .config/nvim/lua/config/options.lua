@@ -4,3 +4,8 @@
 
 --
 vim.o.clipboard = "unnamed"
+
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+
+vim.opt.foldmethod = "manual"
