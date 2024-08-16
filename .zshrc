@@ -14,7 +14,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # oh my zsh #
 #############
 
-plugins=(aliases alias-tips archlinux copyfile extract git zoxide zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(aliases alias-tips archlinux copyfile extract fast-syntax-highlighting git zoxide zsh-autosuggestions zsh-syntax-highlighting)
 
 fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
 
@@ -25,6 +25,9 @@ source $ZSH/oh-my-zsh.sh
 ######################
 # user configuration #
 ######################
+
+export EDITOR=nvim
+export PATH=/home/palilo/.cargo/bin:$PATH
 
 setopt autocd beep nomatch
 
@@ -41,8 +44,14 @@ alias ld="eza -lD --colour=always --icons=always"
 alias l.="eza -a | rg '^\.'"
 alias lg="lazygit"
 alias fetch="fastfetch"
-alias shut="sudo shutdown now"
-alias restart="sudo reboot now"
+alias shut="systemctl poweroff"
+alias restart="systemctl reboot"
+
+# zsh history
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
 
 ####################
 # from zsh-newuser #
