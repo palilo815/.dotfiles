@@ -27,6 +27,7 @@ fi
 
 force_generate=0
 generated_versions="$HOME/.config/ml4w/cache/wallpaper-generated"
+waypaper_running=$HOME/.config/ml4w/cache/waypaper-running
 cache_file="$HOME/.config/ml4w/cache/current_wallpaper"
 blurred_wallpaper="$HOME/.config/ml4w/cache/blurred_wallpaper.png"
 square_wallpaper="$HOME/.config/ml4w/cache/square_wallpaper.png"
@@ -36,6 +37,12 @@ default_wallpaper="$HOME/wallpaper/default.jpg"
 wallpaper_effect="$HOME/.config/ml4w/settings/wallpaper-effect.sh"
 blur="50x30"
 blur=$(cat $blur_file)
+
+# Ensures that the script only run once if wallpaper effect enabled
+if [ -f $waypaper_running ] ;then 
+    rm $waypaper_running
+    exit
+fi
 
 # Create folder with generated versions of wallpaper if not exists
 if [ ! -d $generated_versions ] ;then
@@ -91,10 +98,16 @@ if [ -f $wallpaper_effect ] ;then
             source $HOME/.config/hypr/effects/wallpaper/$effect
         fi
         echo ":: Loading wallpaper $generated_versions/$effect-$wallpaper_filename with effect $effect"
+        echo ":: Setting wallpaper with $used_wallpaper"
+        touch $waypaper_running
+        waypaper --wallpaper $used_wallpaper
     else
         echo ":: Wallpaper effect is set to off"
     fi
+else
+    effect="off"
 fi
+
 
 # ----------------------------------------------------- 
 # Execute pywal
@@ -103,18 +116,6 @@ fi
 echo ":: Execute pywal with $used_wallpaper"
 wal -q -i $used_wallpaper
 source "$HOME/.cache/wal/colors.sh"
-
-# ----------------------------------------------------- 
-# Write hyprpaper.conf
-# -----------------------------------------------------
-
-echo ":: Setting wallpaper with $used_wallpaper"
-killall -e hyprpaper & 
-sleep 1; 
-wal_tpl=$(cat $HOME/.config/ml4w/settings/hyprpaper.tpl)
-output=${wal_tpl//WALLPAPER/$used_wallpaper}
-echo "$output" > $HOME/.config/hypr/hyprpaper.conf
-hyprpaper & > /dev/null 2>&1
 
 # ----------------------------------------------------- 
 # Reload Waybar
@@ -131,15 +132,19 @@ ags &
 # Created blurred wallpaper
 # -----------------------------------------------------
 
-echo ":: Generate new cached wallpaper blur-$blur-$wallpaper_filename with blur $blur"
-magick $used_wallpaper -resize 75% $blurred_wallpaper
-echo ":: Resized to 75%"
-if [ ! "$blur" == "0x0" ] ;then
-    magick $blurred_wallpaper -blur $blur $blurred_wallpaper
-    cp $blurred_wallpaper $generated_versions/blur-$blur-$wallpaper_filename.png
-    echo ":: Blurred"
+if [ -f $generated_versions/blur-$blur-$effect-$wallpaper_filename.png ] && [ "$force_generate" == "0" ] && [ "$use_cache" == "1" ] ;then
+    echo ":: Use cached wallpaper blur-$blur-$effect-$wallpaper_filename"
+else
+    echo ":: Generate new cached wallpaper blur-$blur-$effect-$wallpaper_filename with blur $blur"
+    magick $used_wallpaper -resize 75% $blurred_wallpaper
+    echo ":: Resized to 75%"
+    if [ ! "$blur" == "0x0" ] ;then
+        magick $blurred_wallpaper -blur $blur $blurred_wallpaper
+        cp $blurred_wallpaper $generated_versions/blur-$blur-$effect-$wallpaper_filename.png
+        echo ":: Blurred"
+    fi
 fi
-cp $generated_versions/blur-$blur-$wallpaper_filename.png $blurred_wallpaper
+cp $generated_versions/blur-$blur-$effect-$wallpaper_filename.png $blurred_wallpaper
 
 # ----------------------------------------------------- 
 # Create rasi file
