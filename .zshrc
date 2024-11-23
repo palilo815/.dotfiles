@@ -28,6 +28,7 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR=nvim
 export PATH=/home/palilo/.cargo/bin:$PATH
+export PATH=/home/palilo/go/bin:$PATH
 
 setopt autocd beep nomatch
 
@@ -37,9 +38,9 @@ export ARCHFLAGS="-arch x86_64"
 export EDITOR="nvim"
 
 alias vim="nvim"
-alias ls="eza -al --colour=always --group-directories-first --icons=always"
-alias ll="eza -l --colour=always --group-directories-first --icons=always"
-alias lt="eza -aT --colour=always --group-directories-first --icons=always"
+alias ls="eza -l  --colour=always --group-directories-first --icons=always"
+alias la="eza -al --colour=always --group-directories-first --icons=always"
+alias lt="eza -T  --colour=always --group-directories-first --icons=always"
 alias ld="eza -lD --colour=always --icons=always"
 alias l.="eza -a | rg '^\.'"
 alias lg="lazygit"
