@@ -45,6 +45,7 @@ alias ld="eza -lD --colour=always --icons=always"
 alias l.="eza -a | rg '^\.'"
 alias lg="lazygit"
 alias fetch="fastfetch"
+alias winmount="sudo mount -r -t ntfs /dev/sda2 Mount"
 alias shut="systemctl poweroff"
 alias restart="systemctl reboot"
 
