@@ -91,7 +91,7 @@ if [ -f $wallpapereffect ]; then
             echo ":: Use cached wallpaper $effect-$wallpaperfilename"
         else
             echo ":: Generate new cached wallpaper $effect-$wallpaperfilename with effect $effect"
-            dunstify "Using wallpaper effect $effect..." "with image $wallpaperfilename" -h int:value:33 -h string:x-dunst-stack-tag:wallpaper
+            notify-send --replace-id=1 "Using wallpaper effect $effect..." "with image $wallpaperfilename" -h int:value:33
             source $HOME/.config/hypr/effects/wallpaper/$effect
         fi
         echo ":: Loading wallpaper $generatedversions/$effect-$wallpaperfilename with effect $effect"
@@ -106,26 +106,18 @@ else
 fi
 
 # ----------------------------------------------------- 
-# Stop all running waybar instances
-# ----------------------------------------------------- 
-
-echo ":: Stop all running waybar instances"
-killall waybar
-pkill waybar
-
-# ----------------------------------------------------- 
 # Execute pywal
 # ----------------------------------------------------- 
 
 echo ":: Execute pywal with $used_wallpaper"
-wal -q -i $used_wallpaper
+wal -q -i "$used_wallpaper"
 source "$HOME/.cache/wal/colors.sh"
 
 # ----------------------------------------------------- 
 # Reload Waybar
 # -----------------------------------------------------
 
-~/.config/waybar/launch.sh
+killall -SIGUSR2 waybar
 
 # ----------------------------------------------------- 
 # Pywalfox
@@ -143,7 +135,7 @@ if [ -f $generatedversions/blur-$blur-$effect-$wallpaperfilename.png ] && [ "$fo
     echo ":: Use cached wallpaper blur-$blur-$effect-$wallpaperfilename"
 else
     echo ":: Generate new cached wallpaper blur-$blur-$effect-$wallpaperfilename with blur $blur"
-    dunstify "Generate new blurred version" "with blur $blur" -h int:value:66 -h string:x-dunst-stack-tag:wallpaper
+    notify-send --replace-id=1 "Generate new blurred version" "with blur $blur" -h int:value:66
     magick $used_wallpaper -resize 75% $blurredwallpaper
     echo ":: Resized to 75%"
     if [ ! "$blur" == "0x0" ]; then
@@ -171,3 +163,10 @@ echo ":: Generate new cached wallpaper square-$wallpaperfilename"
 magick $tmpwallpaper -gravity Center -extent 1:1 $squarewallpaper
 cp $squarewallpaper $generatedversions/square-$wallpaperfilename.png
 
+# ----------------------------------------------------- 
+# Reload AGS
+# -----------------------------------------------------
+
+ags quit &
+sleep 0.2
+ags run &
