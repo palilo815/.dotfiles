@@ -3,3 +3,7 @@ array_width = 90
 chain_width = 90
 struct_lit_width = 60
 edition = "2024"
+
+unstable_features = true
+format_macro_bodies = true
+format_macro_matchers = true
