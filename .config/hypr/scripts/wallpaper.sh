@@ -104,15 +104,21 @@ else
 fi
 
 # -----------------------------------------------------
-# Execute pywal
+# Execute matugen
 # -----------------------------------------------------
 
-echo ":: Execute pywal with $used_wallpaper"
-wal -q -i "$used_wallpaper"
-source "$HOME/.cache/wal/colors.sh"
+echo ":: Execute matugen with $used_wallpaper"
+$HOME/.cargo/bin/matugen image $used_wallpaper -m "dark"
 
 # -----------------------------------------------------
-# Walcord
+# Execute wallust
+# -----------------------------------------------------
+
+echo ":: Execute wallust with $used_wallpaper"
+$HOME/.cargo/bin/wallust run $used_wallpaper
+
+# -----------------------------------------------------
+# Walcord (NOT SUPPORTED)
 # -----------------------------------------------------
 
 if type walcord >/dev/null 2>&1; then
@@ -123,7 +129,15 @@ fi
 # Reload Waybar
 # -----------------------------------------------------
 
-killall -SIGUSR2 waybar
+sleep 2
+$HOME/.config/waybar/launch.sh
+# killall -SIGUSR2 waybar
+
+# -----------------------------------------------------
+# Reload nwg-dock-hyprland
+# -----------------------------------------------------
+
+$HOME/.config/nwg-dock-hyprland/launch.sh &
 
 # -----------------------------------------------------
 # Update Pywalfox
