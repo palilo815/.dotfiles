@@ -9,7 +9,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-
 #############
 # oh my zsh #
 #############
@@ -21,6 +20,28 @@ fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_"
 
 source $ZSH/oh-my-zsh.sh
+
+#########
+# alias #
+#########
+
+# apps
+alias fetch="fastfetch"
+alias lg="lazygit"
+alias vim="nvim"
+
+# eza
+alias ls="eza -l  --colour=always --group-directories-first --icons=always"
+alias la="eza -al --colour=always --group-directories-first --icons=always"
+alias ld="eza -lD --colour=always --icons=always"
+alias lt="eza -T  --colour=always --group-directories-first --icons=always"
+alias l.="eza -a | rg '^\.'"
+
+# useful commands
+alias restart="systemctl reboot"
+alias shut="systemctl poweroff"
+alias whattime="date +\"%Y-%m-%dT%H:%M:%S%:z\""
+alias winmount="sudo mount -t ntfs /dev/sda2 ~/Mount"
 
 ######################
 # user configuration #
@@ -35,19 +56,6 @@ setopt autocd beep nomatch
 bindkey '^ ' autosuggest-accept
 
 export ARCHFLAGS="-arch x86_64"
-export EDITOR="nvim"
-
-alias vim="nvim"
-alias ls="eza -l  --colour=always --group-directories-first --icons=always"
-alias la="eza -al --colour=always --group-directories-first --icons=always"
-alias lt="eza -T  --colour=always --group-directories-first --icons=always"
-alias ld="eza -lD --colour=always --icons=always"
-alias l.="eza -a | rg '^\.'"
-alias lg="lazygit"
-alias fetch="fastfetch"
-alias winmount="sudo mount -t ntfs /dev/sda2 ~/Mount"
-alias shut="systemctl poweroff"
-alias restart="systemctl reboot"
 
 # zsh history
 HISTFILE=~/.zsh_history
