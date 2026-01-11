@@ -13,7 +13,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # oh my zsh #
 #############
 
-plugins=(aliases alias-tips archlinux copyfile extract fast-syntax-highlighting git zoxide zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(aliases alias-tips archlinux copyfile extract git zoxide zsh-autosuggestions zsh-syntax-highlighting)
 
 fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
 
@@ -55,22 +55,11 @@ setopt autocd beep nomatch
 
 bindkey '^ ' autosuggest-accept
 
-export ARCHFLAGS="-arch x86_64"
-
 # zsh history
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
-
-####################
-# from zsh-newuser #
-####################
-
-zstyle :compinstall filename "/home/palilo/.zshrc"
-
-autoload -Uz compinit
-compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
