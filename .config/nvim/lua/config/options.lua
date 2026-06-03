@@ -9,3 +9,6 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
 vim.opt.foldmethod = "manual"
+
+-- Set to "basedpyright" to use basedpyright instead of pyright.
+vim.g.lazyvim_python_lsp = "basedpyright"
